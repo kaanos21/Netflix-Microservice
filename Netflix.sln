@@ -1,0 +1,82 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35004.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEnds", "FrontEnds", "{CD44ABE9-34D9-41FD-AD82-85547405602B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{3359CFA2-592E-4495-863A-FB63C0A6687F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateway", "ApiGateway", "{9BDACAC0-8B37-4066-8918-EA7542110A7D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Content", "Content", "{F03E5F97-FCC9-45E2-819F-8D876DE4C41E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Netflix.Content", "Netflix.Content\Netflix.Content.csproj", "{8048D9AF-1618-4D3E-959F-D9349F3E6D76}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Comment", "Comment", "{97D4D8AF-7D7C-4054-BC8C-0B1B156656DF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Netflix.Comment", "Services\Comment\Netflix.Comment\Netflix.Comment.csproj", "{F832597F-810F-4DD0-A70D-001964958EE2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Movie", "Movie", "{050C8D65-1822-47D0-9A52-B83F0F8A7845}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Netflix.Movie", "Services\Movie\Netflix.Movie\Netflix.Movie.csproj", "{D376ED03-3E7E-4A07-8C07-05C09FD6B127}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Genre", "Genre", "{67A4FF48-CFA7-4086-B489-84A91AFB0322}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Netflix.Genre", "Services\Genre\Netflix.Genre\Netflix.Genre.csproj", "{CB1200A5-9B56-4028-A2FD-EB40D4A990A1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Language", "Language", "{FF8E5AC6-85C1-4612-9F59-E1DA533E1E1A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Netflix.Language", "Service\Language\Netflix.Language\Netflix.Language.csproj", "{DE6872BA-F0D9-4670-B2E6-88006C3FFF75}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Notes", "Notes", "{3DFE5D38-CE07-4325-BA0E-7D9C5B2F8872}"
+	ProjectSection(SolutionItems) = preProject
+		SwaggerApiAddress.txt = SwaggerApiAddress.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8048D9AF-1618-4D3E-959F-D9349F3E6D76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8048D9AF-1618-4D3E-959F-D9349F3E6D76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8048D9AF-1618-4D3E-959F-D9349F3E6D76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8048D9AF-1618-4D3E-959F-D9349F3E6D76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F832597F-810F-4DD0-A70D-001964958EE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F832597F-810F-4DD0-A70D-001964958EE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F832597F-810F-4DD0-A70D-001964958EE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F832597F-810F-4DD0-A70D-001964958EE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D376ED03-3E7E-4A07-8C07-05C09FD6B127}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D376ED03-3E7E-4A07-8C07-05C09FD6B127}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D376ED03-3E7E-4A07-8C07-05C09FD6B127}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D376ED03-3E7E-4A07-8C07-05C09FD6B127}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB1200A5-9B56-4028-A2FD-EB40D4A990A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB1200A5-9B56-4028-A2FD-EB40D4A990A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB1200A5-9B56-4028-A2FD-EB40D4A990A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB1200A5-9B56-4028-A2FD-EB40D4A990A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE6872BA-F0D9-4670-B2E6-88006C3FFF75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE6872BA-F0D9-4670-B2E6-88006C3FFF75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE6872BA-F0D9-4670-B2E6-88006C3FFF75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE6872BA-F0D9-4670-B2E6-88006C3FFF75}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F03E5F97-FCC9-45E2-819F-8D876DE4C41E} = {3359CFA2-592E-4495-863A-FB63C0A6687F}
+		{8048D9AF-1618-4D3E-959F-D9349F3E6D76} = {F03E5F97-FCC9-45E2-819F-8D876DE4C41E}
+		{97D4D8AF-7D7C-4054-BC8C-0B1B156656DF} = {3359CFA2-592E-4495-863A-FB63C0A6687F}
+		{F832597F-810F-4DD0-A70D-001964958EE2} = {97D4D8AF-7D7C-4054-BC8C-0B1B156656DF}
+		{050C8D65-1822-47D0-9A52-B83F0F8A7845} = {3359CFA2-592E-4495-863A-FB63C0A6687F}
+		{D376ED03-3E7E-4A07-8C07-05C09FD6B127} = {050C8D65-1822-47D0-9A52-B83F0F8A7845}
+		{67A4FF48-CFA7-4086-B489-84A91AFB0322} = {3359CFA2-592E-4495-863A-FB63C0A6687F}
+		{CB1200A5-9B56-4028-A2FD-EB40D4A990A1} = {67A4FF48-CFA7-4086-B489-84A91AFB0322}
+		{FF8E5AC6-85C1-4612-9F59-E1DA533E1E1A} = {3359CFA2-592E-4495-863A-FB63C0A6687F}
+		{DE6872BA-F0D9-4670-B2E6-88006C3FFF75} = {FF8E5AC6-85C1-4612-9F59-E1DA533E1E1A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3B70CB03-3C74-4C70-B503-220DCBC4C424}
+	EndGlobalSection
+EndGlobal

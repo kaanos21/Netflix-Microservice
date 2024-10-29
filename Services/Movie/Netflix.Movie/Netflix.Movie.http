@@ -1,0 +1,6 @@
+@Netflix.Movie_HostAddress = http://localhost:5133
+
+GET {{Netflix.Movie_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
