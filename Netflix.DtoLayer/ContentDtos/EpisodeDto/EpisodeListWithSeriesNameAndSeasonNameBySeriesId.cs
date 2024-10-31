@@ -18,5 +18,7 @@ namespace Netflix.DtoLayer.ContentDtos.EpisodeDto
         public string StreamFileUrl { get; set; }
         public string SeriesName { get; set; }
         public int SeasonNumber { get; set; }
+
+
     }
 }
