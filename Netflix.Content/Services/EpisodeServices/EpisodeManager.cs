@@ -25,7 +25,7 @@ namespace Netflix.Content.Services.EpisodeServices
                 Duration = episodeDto.Duration,
                 StreamFileUrl = episodeDto.StreamFileUrl,
                 Title = episodeDto.Title,
-                ReleaseDate = episodeDto.ReleaseDate,
+                ReleaseDate = episodeDto.ReleaseDate.ToUniversalTime(),
                 SeasonId = episodeDto.SeasonId,
             };
 
@@ -52,7 +52,7 @@ namespace Netflix.Content.Services.EpisodeServices
             {
                 EpisodeId = s.EpisodeId,
                 Title = s.Title,
-                ReleaseDate = s.ReleaseDate,
+                ReleaseDate = s.ReleaseDate.ToUniversalTime(),
                 EpisodeNumber = s.EpisodeNumber,
                 Duration = s.Duration,
                 StreamFileUrl = s.StreamFileUrl,
@@ -81,6 +81,55 @@ namespace Netflix.Content.Services.EpisodeServices
                 SeasonId = value.SeasonId,
             };
             return result;
+        }
+
+        public async Task<List<EpisodeListWithSeriesNameAndSeasonNameBySeriesId>> GetEpisodeListDetail(int seasonId)
+        {
+            var episodes = await _context.Episodes
+                .Where(x => x.SeasonId == seasonId)
+                .ToListAsync();
+
+            var seasonEntity = await _context.Seasons
+                .Where(x => x.SeasonId == seasonId)
+                .Include(s => s.Series) // Series bilgisini almak için ilişkiyi dahil et
+                .FirstOrDefaultAsync();
+
+            string seasonName = seasonEntity?.SeasonName;
+            int seasonNumber = seasonEntity.SeasonNumber; // SeasonNumber bilgisini al
+            string seriesName = seasonEntity?.Series?.Title; // Series ismini al
+
+            // DTO dönüşümü
+            var episodeDtos = episodes.Select(episode => new EpisodeListWithSeriesNameAndSeasonNameBySeriesId
+            {
+                EpisodeId = episode.EpisodeId,
+                SeasonId = seasonId,
+                EpisodeNumber = episode.EpisodeNumber,
+                Title = episode.Title,
+                Duration = episode.Duration,
+                ReleaseDate = episode.ReleaseDate,
+                StreamFileUrl = episode.StreamFileUrl,
+                SeasonName = seasonName,
+                SeasonNumber = seasonNumber, // DTO'ya SeasonNumber eklendi
+                SeriesName = seriesName
+            }).ToList();
+
+            return episodeDtos;
+        }
+
+        public async Task<List<ResultEpisodeDto>> GetEpisodesListBySeasonId(int seasonId)
+        {
+            var value = await _context.Episodes.Where(x => x.SeasonId == seasonId).ToListAsync();
+            var resultList = value.Select(s => new ResultEpisodeDto
+            {
+                EpisodeId = s.EpisodeId,
+                Title = s.Title,
+                ReleaseDate = s.ReleaseDate.ToUniversalTime(),
+                EpisodeNumber = s.EpisodeNumber,
+                Duration = s.Duration,
+                StreamFileUrl = s.StreamFileUrl,
+                SeasonId = s.SeasonId,
+            }).ToList();
+            return resultList;
         }
 
         public async Task UpdateEpisodeAsync(UpdateEpisodeDto episodeDto)

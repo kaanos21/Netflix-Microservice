@@ -10,5 +10,7 @@ namespace Netflix.Subtitle.Services.SubtitleService
         Task CreateSubtitleAsync(CreateSubtitleDto SubtitleDto);
         Task UpdateSubtitleAsync(UpdateSubtitleDto SubtitleDto);
         Task DeleteSubtitleAsync(int id);
+        Task<List<GetSubtitlesWithLanguageByContentIdDto>> GetSubtitlesWithLanguageByContentId(int contentId);
+        
     }
 }

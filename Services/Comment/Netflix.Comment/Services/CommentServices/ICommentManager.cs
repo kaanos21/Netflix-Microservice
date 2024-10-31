@@ -4,11 +4,11 @@ namespace Netflix.Comment.Services.CommentServices
 {
     public interface ICommentManager
     {
-        Task<List<ResultCommentDto>> GetAllCommentAsync();
-        Task<GetByIdCommentDto> GetCommentByIdAsync(int id);
-        Task CreateCommentAsync(CreateCommentDto CommentDto);
-        Task UpdateCommentAsync(UpdateCommentDto CommentDto);
+        Task<List<ResultCommentsDto>> GetAllCommentAsync();
+        Task<GetByIdCommentsDto> GetCommentByIdAsync(int id);
+        Task CreateCommentAsync(CreateCommentsDto CommentDto);
+        Task UpdateCommentAsync(UpdateCommentsDto CommentDto);
         Task DeleteCommentAsync(int id);
-        Task <List<ResultCommentDto>> GetCommentListByContentIdAsync(int id);
+        Task <List<ResultCommentsDto>> GetCommentListByContentIdAsync(int id);
     }
 }

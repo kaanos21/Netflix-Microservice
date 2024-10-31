@@ -44,5 +44,17 @@ namespace Netflix.Content.Controllers
             await _EpisodeManager.DeleteEpisodeAsync(id);
             return Ok("Silindi");
         }
+        [HttpGet("GetEpisodesListBySeasonId")]
+        public async Task<IActionResult> GetEpisodesListBySeasonId(int id)
+        {
+            var value=await _EpisodeManager.GetEpisodesListBySeasonId(id);
+            return Ok(value);
+        }
+        [HttpGet("GetEpisodeListDetail")]
+        public async Task<IActionResult> GetEpisodeListDetail(int seasonId)
+        {
+            var value=await _EpisodeManager.GetEpisodeListDetail(seasonId);
+            return Ok(value);
+        }
     }
 }

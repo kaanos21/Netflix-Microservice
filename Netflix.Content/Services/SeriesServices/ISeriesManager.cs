@@ -7,7 +7,8 @@ namespace Netflix.Content.Services.SeriesServices
     public interface ISeriesManager
     {
         Task<List<ResultSeriesDto>> GetAllSeriesAsync();
-        Task<GetByIdSeriesDto> GetSeriesByIdAsync(int id);
+        Task<UpdateSeriesDto> GetSeriesByIdAsync(int id);
+        Task<GetByIdSeriesDto> GetSeriesDetailByIdAsync(int id);
         Task CreateSeriesAsync(CreateSeriesDto seriesDto);
         Task UpdateSeriesAsync(UpdateSeriesDto seriesDto);
         Task DeleteSeriesAsync(int id);

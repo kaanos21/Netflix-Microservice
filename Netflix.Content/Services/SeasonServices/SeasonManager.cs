@@ -20,6 +20,7 @@ namespace Netflix.Content.Services.SeasonServices
             {
                 SeriesId = seasonDto.SeriesId,
                 SeasonNumber = seasonDto.SeasonNumber,
+                SeasonName=seasonDto.SeasonName,
                 EpisodeCount = seasonDto.EpisodeCount
             };
 
@@ -42,6 +43,7 @@ namespace Netflix.Content.Services.SeasonServices
             {
                 SeasonId = s.SeasonId,
                 SeriesId = s.SeriesId,
+                SeasonName = s.SeasonName,
                 SeasonNumber = s.SeasonNumber,
                 EpisodeCount = s.EpisodeCount,
             }).ToList();
@@ -59,7 +61,9 @@ namespace Netflix.Content.Services.SeasonServices
             // DTO dönüşümü
             var seasonDtos = seasons.Select(season => new SeasonWithSeriesNameDto
             {
+                SeriesId = season.SeriesId,
                 SeasonId = season.SeasonId,
+                SeasonName= season.SeasonName,
                 SeasonNumber = season.SeasonNumber,
                 EpisodeCount = season.EpisodeCount,
                 SeriesName = season.Series.Title // Dizi adı ekleniyor
@@ -75,6 +79,7 @@ namespace Netflix.Content.Services.SeasonServices
             {
                 SeasonId = value.SeasonId,
                 SeriesId = value.SeriesId,
+                SeasonName = value.SeasonName,
                 SeasonNumber = value.SeasonNumber,
                 EpisodeCount = value.EpisodeCount
             };
@@ -89,7 +94,7 @@ namespace Netflix.Content.Services.SeasonServices
             {
                 throw new KeyNotFoundException($"Seri bulunamadı: {seasonDto.SeasonId}");
             }
-
+            season.SeasonName = seasonDto.SeasonName;
             season.SeriesId = seasonDto.SeriesId;
             season.SeasonNumber = seasonDto.SeasonNumber;
             season.EpisodeCount = seasonDto.EpisodeCount;

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
 using Netflix.Language.Dtos.SubtitleDtos;
 using Netflix.Subtitle.Services.SubtitleService;
 
@@ -44,6 +45,12 @@ namespace Netflix.Subtitle.Controllers
         {
             await _SubtitleManager.DeleteSubtitleAsync(id);
             return Ok("Silindi");
+        }
+        [HttpGet("GetSubtitlesWithLanguageByContentId")]
+        public async Task<IActionResult> GetSubtitlesWithLanguageByContentId(int contentId)
+        {
+            var value=await _SubtitleManager.GetSubtitlesWithLanguageByContentId(contentId);
+            return Ok(value);
         }
     }
 }

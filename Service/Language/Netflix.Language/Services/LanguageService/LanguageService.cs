@@ -18,7 +18,7 @@ namespace Netflix.Language.Services.LanguageService
         }
 
 
-        public async Task CreateLanguageAsync(CreateLanguageDto languageDto)
+        public async Task CreateLanguageAsync(CreateLanguagesDto languageDto)
         {
             var language = new Languages
             {
@@ -30,11 +30,11 @@ namespace Netflix.Language.Services.LanguageService
         }
 
 
-        public async Task<List<ResultLanguageDto>> GetAllLanguageAsync()
+        public async Task<List<ResultLanguagesDto>> GetAllLanguageAsync()
         {
             var languageList = await _context.Languages.ToListAsync();
 
-            var resultList = languageList.Select(l => new ResultLanguageDto
+            var resultList = languageList.Select(l => new ResultLanguagesDto
             {
                 LanguagesId = l.LanguagesId,
                 LanguageName = l.LanguageName
@@ -43,7 +43,7 @@ namespace Netflix.Language.Services.LanguageService
             return resultList;
         }
 
-        public async Task<GetByIdLanguageDto> GetLanguageByIdAsync(int id)
+        public async Task<GetByIdLanguagesDto> GetLanguageByIdAsync(int id)
         {
             var value = await _context.Languages.FindAsync(id);
             if (value == null)
@@ -51,7 +51,7 @@ namespace Netflix.Language.Services.LanguageService
                 throw new KeyNotFoundException($"Language bulunamadı: {id}");
             }
 
-            return new GetByIdLanguageDto
+            return new GetByIdLanguagesDto
             {
                 LanguagesId = value.LanguagesId,
                 LanguageName = value.LanguageName
@@ -59,7 +59,7 @@ namespace Netflix.Language.Services.LanguageService
         }
 
 
-        public async Task UpdateLanguageAsync(UpdateLanguageDto languageDto)
+        public async Task UpdateLanguageAsync(UpdateLanguagesDto languageDto)
         {
             var language = await _context.Languages.FindAsync(languageDto.LanguagesId);
             if (language == null)

@@ -7,11 +7,11 @@ namespace Netflix.GenreMapping.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class GenreMappingMappingController : ControllerBase
+    public class GenreMappingController : ControllerBase
     {
         private readonly IGenreMappingMappingManager _GenreMappingsManager;
 
-        public GenreMappingMappingController(IGenreMappingMappingManager GenreMappingsManager)
+        public GenreMappingController(IGenreMappingMappingManager GenreMappingsManager)
         {
             _GenreMappingsManager = GenreMappingsManager;
         }

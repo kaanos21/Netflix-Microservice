@@ -4,10 +4,10 @@ namespace Netflix.Language.Services.LanguageService
 {
     public interface ILanguageService
     {
-        Task<List<ResultLanguageDto>> GetAllLanguageAsync();
-        Task<GetByIdLanguageDto> GetLanguageByIdAsync(int id);
-        Task CreateLanguageAsync(CreateLanguageDto LanguageDto);
-        Task UpdateLanguageAsync(UpdateLanguageDto LanguageDto);
+        Task<List<ResultLanguagesDto>> GetAllLanguageAsync();
+        Task<GetByIdLanguagesDto> GetLanguageByIdAsync(int id);
+        Task CreateLanguageAsync(CreateLanguagesDto LanguageDto);
+        Task UpdateLanguageAsync(UpdateLanguagesDto LanguageDto);
         Task DeleteLanguageAsync(int id);
     }
 }

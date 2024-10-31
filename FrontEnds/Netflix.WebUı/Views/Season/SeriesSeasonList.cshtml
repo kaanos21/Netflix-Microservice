@@ -1,0 +1,39 @@
+﻿@model List<SeasonWithSeriesNameDto>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GetSeasonSeries</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="container mt-4">
+        <h3 class="mb-4">Season and Series List</h3>
+        <div class="row">
+            @foreach (var season in Model)
+            {
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">@season.SeriesName</h5>
+                            <p class="card-text"><strong>Season Name:</strong> @season.SeasonName</p>
+                            <p class="card-text"><strong>Season Number:</strong> @season.SeasonNumber</p>
+                            <p class="card-text"><strong>Episode Count:</strong> @season.EpisodeCount</p>
+                            <p class="card-text"><strong>Series ID:</strong> @season.SeriesId</p>
+                            <a href="/Episode/EpisodeList/@season.SeasonId" class="btn btn-primary mt-3">İzle</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

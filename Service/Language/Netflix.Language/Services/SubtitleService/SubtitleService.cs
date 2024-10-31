@@ -92,5 +92,21 @@ namespace Netflix.Subtitle.Services.SubtitleService
             _context.Subtitles.Remove(subtitle);
             await _context.SaveChangesAsync();
         }
+
+        public async Task<List<GetSubtitlesWithLanguageByContentIdDto>> GetSubtitlesWithLanguageByContentId(int contentId)
+        {
+            var responseMessage = await _context.Subtitles.Where(x => x.ContentId == contentId).Include(x=>x.Language).ToListAsync();
+
+            var result = responseMessage.Select(x => new GetSubtitlesWithLanguageByContentIdDto
+            {
+                SubtitlesId = x.SubtitlesId,
+                ContentId = x.ContentId,
+                LanguageId = x.LanguageId,
+                SubtitleFileUrl = x.SubtitleFileUrl,
+                LanguageName = x.Language.LanguageName
+            }).ToList();
+
+            return result;
+        }
     }
 }

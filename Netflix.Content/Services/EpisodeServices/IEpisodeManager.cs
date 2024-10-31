@@ -9,5 +9,7 @@ namespace Netflix.Content.Services.EpisodeServices
         Task CreateEpisodeAsync(CreateEpisodeDto EpisodeDto);
         Task UpdateEpisodeAsync(UpdateEpisodeDto EpisodeDto);
         Task DeleteEpisodeAsync(int id);
+        Task<List<ResultEpisodeDto>> GetEpisodesListBySeasonId(int seasonId);
+        Task<List<EpisodeListWithSeriesNameAndSeasonNameBySeriesId>> GetEpisodeListDetail(int seasonId);
     }
 }

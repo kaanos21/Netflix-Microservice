@@ -14,7 +14,7 @@ namespace Netflix.Comment.Services.CommentServices
             _context = context;
         }
 
-        public async Task CreateCommentAsync(CreateCommentDto CommentDto)
+        public async Task CreateCommentAsync(CreateCommentsDto CommentDto)
         {
             var comment = new Comments
             {
@@ -39,11 +39,11 @@ namespace Netflix.Comment.Services.CommentServices
             await _context.SaveChangesAsync();
         }
 
-        public async Task<List<ResultCommentDto>> GetAllCommentAsync()
+        public async Task<List<ResultCommentsDto>> GetAllCommentAsync()
         {
             var commentList = await _context.Comments.ToListAsync();
 
-            var resultList = commentList.Select(s => new ResultCommentDto
+            var resultList = commentList.Select(s => new ResultCommentsDto
             {
                 CommentsId = s.CommentsId,
                 Name = s.Name,
@@ -54,7 +54,7 @@ namespace Netflix.Comment.Services.CommentServices
             return resultList;
         }
 
-        public async Task<GetByIdCommentDto> GetCommentByIdAsync(int id)
+        public async Task<GetByIdCommentsDto> GetCommentByIdAsync(int id)
         {
             var value = await _context.Comments.FindAsync(id);
             if (value == null)
@@ -62,7 +62,7 @@ namespace Netflix.Comment.Services.CommentServices
                 throw new KeyNotFoundException($"Yorum bulunamadı: {id}");
             }
 
-            var result = new GetByIdCommentDto
+            var result = new GetByIdCommentsDto
             {
                 CommentsId = value.CommentsId,
                 ContentId = value.ContentId,
@@ -73,10 +73,10 @@ namespace Netflix.Comment.Services.CommentServices
             return result;
         }
 
-        public async Task<List<ResultCommentDto>> GetCommentListByContentIdAsync(int id)
+        public async Task<List<ResultCommentsDto>> GetCommentListByContentIdAsync(int id)
         {
             var value=await _context.Comments.Where(x=>x.ContentId == id).ToListAsync();
-            var resultList = value.Select(s => new ResultCommentDto
+            var resultList = value.Select(s => new ResultCommentsDto
             {
                 CommentsId = s.CommentsId,
                 Name = s.Name,
@@ -86,7 +86,7 @@ namespace Netflix.Comment.Services.CommentServices
             return resultList;
         }
 
-        public async Task UpdateCommentAsync(UpdateCommentDto CommentDto)
+        public async Task UpdateCommentAsync(UpdateCommentsDto CommentDto)
         {
             var comment = await _context.Comments.FindAsync(CommentDto.CommentsId);
             if (comment == null)

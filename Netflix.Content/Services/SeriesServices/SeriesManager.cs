@@ -19,7 +19,7 @@ namespace Netflix.Content.Services.SeriesServices
             {
                 Title = seriesDto.Title,
                 Description = seriesDto.Description,
-                ReleaseDate = seriesDto.ReleaseDate,
+                ReleaseDate = DateTime.Now.ToUniversalTime(),
                 TotalSeasons = seriesDto.TotalSeasons
             };
 
@@ -49,10 +49,10 @@ namespace Netflix.Content.Services.SeriesServices
 
             return resultList;
         }
-        public async Task<GetByIdSeriesDto> GetSeriesByIdAsync(int id)
+        public async Task<UpdateSeriesDto> GetSeriesByIdAsync(int id)
         {
             var value = await _context.Series.FindAsync(id);
-            var result = new GetByIdSeriesDto
+            var result = new UpdateSeriesDto
             {
                 SeriesId = value.SeriesId, 
                 Title = value.Title,       
@@ -62,21 +62,45 @@ namespace Netflix.Content.Services.SeriesServices
             };
             return result;
         }
+
+        public async Task<GetByIdSeriesDto> GetSeriesDetailByIdAsync(int id)
+        {
+            var value = await _context.Series.FindAsync(id);
+            var result = new GetByIdSeriesDto
+            {
+                SeriesId = value.SeriesId,
+                Title = value.Title,
+                Description = value.Description,
+                ReleaseDate = value.ReleaseDate,
+                TotalSeasons = value.TotalSeasons
+            };
+            return result;
+        }
+
         public async Task UpdateSeriesAsync(UpdateSeriesDto seriesDto)
         {
-            
-            var series = await _context.Series.FindAsync(seriesDto.SeriesId);
-            
-            if (series == null)
+            try
             {
-                throw new KeyNotFoundException($"Seri bulunamadı: {seriesDto.SeriesId}");
-            }
-            series.Title = seriesDto.Title;              
-            series.Description = seriesDto.Description;  
-            series.ReleaseDate = seriesDto.ReleaseDate;  
-            series.TotalSeasons = seriesDto.TotalSeasons; 
+                //{29.10.2024 18:49:29}
+                var series = await _context.Series.FindAsync(seriesDto.SeriesId);
+                if (series == null)
+                {
+                    throw new KeyNotFoundException($"Seri bulunamadı: {seriesDto.SeriesId}");
+                }
+                series.Title = seriesDto.Title;
+                series.Description = seriesDto.Description;
+                series.ReleaseDate = seriesDto.ReleaseDate.ToUniversalTime();
+                series.TotalSeasons = seriesDto.TotalSeasons;
 
-            await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                // Hata mesajını logla
+                Console.WriteLine($"Hata: {ex.Message}");
+                throw; // Hatanın dışarı fırlatılmasını sağla
+            }
         }
+
     }
 }

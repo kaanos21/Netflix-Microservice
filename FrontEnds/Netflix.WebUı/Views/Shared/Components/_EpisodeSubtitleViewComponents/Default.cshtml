@@ -1,0 +1,18 @@
+﻿@model List<Netflix.DtoLayer.LanguagesDtos.SubtitleDtos.GetSubtitlesWithLanguageByContentIdDto>
+
+<div class="subtitle-languages">
+    <h4>Available Languages</h4>
+    @if (Model != null && Model.Any())
+    {
+        <ul>
+            @foreach (var language in Model)
+            {
+                <li>@language.LanguageName</li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>No languages available for this episode.</p> <!-- Boş veri durumu için mesaj -->
+    }
+</div>

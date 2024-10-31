@@ -68,6 +68,10 @@ namespace Netflix.Content.Migrations
                     b.Property<int>("EpisodeCount")
                         .HasColumnType("integer");
 
+                    b.Property<string>("SeasonName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<int>("SeasonNumber")
                         .HasColumnType("integer");
 
@@ -121,11 +125,13 @@ namespace Netflix.Content.Migrations
 
             modelBuilder.Entity("Netflix.Content.Entities.Season", b =>
                 {
-                    b.HasOne("Netflix.Content.Entities.Series", null)
+                    b.HasOne("Netflix.Content.Entities.Series", "Series")
                         .WithMany("Seasons")
                         .HasForeignKey("SeriesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Series");
                 });
 
             modelBuilder.Entity("Netflix.Content.Entities.Season", b =>

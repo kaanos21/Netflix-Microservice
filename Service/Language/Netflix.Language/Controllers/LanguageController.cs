@@ -16,7 +16,7 @@ namespace Netflix.Language.Controllers
             _LanguageManager = LanguageManager;
         }
         [HttpPost]
-        public async Task<IActionResult> CreateLanguage(CreateLanguageDto createLanguageDto)
+        public async Task<IActionResult> CreateLanguage(CreateLanguagesDto createLanguageDto)
         {
             await _LanguageManager.CreateLanguageAsync(createLanguageDto);
             return Ok("başarı ile eklendi");
@@ -28,7 +28,7 @@ namespace Netflix.Language.Controllers
             return Ok(value);
         }
         [HttpPut]
-        public async Task<IActionResult> UpdateLanguage(UpdateLanguageDto updateLanguageDto)
+        public async Task<IActionResult> UpdateLanguage(UpdateLanguagesDto updateLanguageDto)
         {
             await _LanguageManager.UpdateLanguageAsync(updateLanguageDto);
             return Ok("başarı ile güncellendi");

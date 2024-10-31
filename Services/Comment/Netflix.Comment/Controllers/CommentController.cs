@@ -15,7 +15,7 @@ namespace Netflix.Comment.Controllers
             _CommentManager = CommentManager;
         }
         [HttpPost]
-        public async Task<IActionResult> CreateComment(CreateCommentDto createCommentDto)
+        public async Task<IActionResult> CreateComment(CreateCommentsDto createCommentDto)
         {
             await _CommentManager.CreateCommentAsync(createCommentDto);
             return Ok("başarı ile eklendi");
@@ -27,7 +27,7 @@ namespace Netflix.Comment.Controllers
             return Ok(value);
         }
         [HttpPut]
-        public async Task<IActionResult> UpdateComment(UpdateCommentDto updateCommentDto)
+        public async Task<IActionResult> UpdateComment(UpdateCommentsDto updateCommentDto)
         {
             await _CommentManager.UpdateCommentAsync(updateCommentDto);
             return Ok("başarı ile güncellendi");
