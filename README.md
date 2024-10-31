@@ -1,4 +1,5 @@
 Netflix Mikroservis Projesi
+
 Netflix Mikroservis Projesi, ASP.NET Core 8.0 kullanılarak geliştirilmiş bir dizi ve film listeleme uygulamasıdır. Bu proje, kullanıcıların Netflix dizilerini sezon sezon ve bölüm bölüm görüntülemelerini sağlar. Proje, Docker ortamında PostgreSQL ve MSSQL veritabanları ile yapılandırılmış olup, bazı veriler de yerel veritabanından alınarak çalıştırılmıştır.
 
 Kullanılan Teknolojiler ve Uygulamalar 🤖
