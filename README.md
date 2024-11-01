@@ -18,9 +18,7 @@ Netflix Mikroservis Projesi, dizileri sezon sezon ve bölüm bölüm listeleyen 
 - **Dizilere Yorum Yapma**: Kullanıcılar dizilere yorum yapabilir, bu sayede etkileşim artırılmıştır. ✅
 - **Mikroservis Mimarisi**: Servislerin monolitik yapıda yazılmasıyla hızlı ve etkili bir sistem oluşturuldu. ✅
 - **Mikroservisler Arası İletişim**: Mikroservisler arasında etkili bir iletişim sağlanmıştır. Bu iletişim, projenin mikroservis mimarisi kullanılarak yapılandırılmasından kaynaklanmaktadır. Her mikroservis belirli bir işlevi yerine getirirken, ihtiyaç duyduğu verileri diğer mikroservislerden alarak işlem yapabilmektedir.
-  - **İletişim Yöntemleri**: Mikroservisler, genellikle HTTP API, mesajlaşma kuyrukları (örneğin RabbitMQ, Kafka) veya gRPC gibi protokoller aracılığıyla iletişim kurar. Bu sayede veri alışverişi sağlanır.
-  - **Veri Akışı**: Örneğin, bir "Dizi" mikroservisi, "Yorum" mikroservisinden bir dizinin yorumlarını alabilir. Bu tür veri alışverişleri, sistemin esnekliğini ve ölçeklenebilirliğini artırır.
-  - **Yönetim Kolaylığı**: Mikroservislerin bağımsız çalışması, geliştirme, dağıtım ve yönetim süreçlerini kolaylaştırır. Her bir mikroservis, kendi bağımsız döngüsüne sahip olduğundan, bir serviste yapılan değişiklik diğerlerini etkilemeden gerçekleştirilebilir.
+
 - **API Entegrasyonu**: Harici API'ler consume edilerek veri alınabilir. ✅
 
 Bu yapıyla, projemiz hem verimli hem de yönetilebilir bir mikroservis mimarisi sunmaktadır.
