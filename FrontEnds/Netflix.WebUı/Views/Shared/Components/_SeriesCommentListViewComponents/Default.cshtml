@@ -1,0 +1,37 @@
+﻿@model List<ResultCommentsDto>
+
+<div class="comments-section">
+    <h4>Comments</h4>
+    @if (Model != null && Model.Any())
+    {
+        <ul class="list-group">
+            @foreach (var comment in Model)
+            {
+                <li class="list-group-item">
+                    <strong>@comment.Name</strong>
+                    <p>@comment.CommentText</p>
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>No comments available.</p>
+    }
+</div>
+
+<style>
+    .comments-section {
+        margin-top: 20px;
+    }
+
+    .list-group-item {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+        .list-group-item strong {
+            font-weight: bold;
+            display: block;
+        }
+</style>

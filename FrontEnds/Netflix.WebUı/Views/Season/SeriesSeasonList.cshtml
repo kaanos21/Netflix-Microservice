@@ -30,6 +30,11 @@
                 </div>
             }
         </div>
+
+        @await Component.InvokeAsync("_SeriesCommentListViewComponents", new { id = ViewBag.seriesId })
+
+        @await Component.InvokeAsync("_CreateCommentViewComponents", new { contentId = ViewBag.seriesId })
+
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

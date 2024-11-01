@@ -14,6 +14,7 @@ namespace Netflix.WebUı.Controllers
         [HttpGet]
         public async Task<IActionResult> SeriesSeasonList(int id)
         {
+            ViewBag.seriesId=id;
             var value = await _seasonService.GetListSeasonWithSeriesNameBySeriesId(id);
             return View(value);
         }
