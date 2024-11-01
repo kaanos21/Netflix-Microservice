@@ -28,6 +28,13 @@ namespace Netflix.WebUı.Services.GenreServices.GenreMappingServices
             return values;
         }
 
+        public async Task<List<GetByContentIdGenreListWithNameDto>> GetGenreListWithGenreNameByContentId(int contentId)
+        {
+            var responeMessage = await _httpClient.GetAsync("GenreMapping/GetGenreListWithGenreNameByContentId?contentId="+contentId);
+            var values = await responeMessage.Content.ReadFromJsonAsync<List<GetByContentIdGenreListWithNameDto>>();
+            return values;
+        }
+
         public async Task<GetByIdGenreMappingDto> GetGenreMappingByIdAsync(int id)
         {
             var responseMessage = await _httpClient.GetAsync("GenreMapping/GetByIdGenreMapping?id=" + id);

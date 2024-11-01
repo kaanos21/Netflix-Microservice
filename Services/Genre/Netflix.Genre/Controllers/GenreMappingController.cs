@@ -45,5 +45,11 @@ namespace Netflix.GenreMapping.Controllers
             await _GenreMappingsManager.DeleteGenreMappingAsync(id);
             return Ok("Silindi");
         }
+        [HttpGet("GetGenreListWithGenreNameByContentId")]
+        public async Task<IActionResult> GetGenreListWithGenreNameByContentId(int contentId)
+        {
+           var value= await _GenreMappingsManager.GetGenreListWithGenreNameByContentId(contentId);
+            return Ok(value);
+        }
     }
 }

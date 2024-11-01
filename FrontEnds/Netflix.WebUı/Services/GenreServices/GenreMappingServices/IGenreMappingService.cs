@@ -9,5 +9,6 @@ namespace Netflix.WebUı.Services.GenreServices.GenreMappingServices
         Task CreateGenreMappingAsync(CreateGenreMappingDto GenreMappingDto);
         Task UpdateGenreMappingAsync(UpdateGenreMappingDto GenreMappingDto);
         Task DeleteGenreMappingAsync(int id);
+        Task<List<GetByContentIdGenreListWithNameDto>> GetGenreListWithGenreNameByContentId(int contentId);
     }
 }

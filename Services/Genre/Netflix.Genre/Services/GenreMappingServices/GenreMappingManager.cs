@@ -49,6 +49,19 @@ namespace Netflix.GenreMapping.Services.GenreMappingMappingServices
                 .ToListAsync();
         }
 
+        public async Task<List<GetByContentIdGenreListWithNameDto>> GetGenreListWithGenreNameByContentId(int contentId)
+        {
+            var responseMessage=await _context.GenreMappings.Where(x=>x.ContentId==contentId).Include(x=>x.Genre).ToListAsync();
+            var result = responseMessage.Select(x => new GetByContentIdGenreListWithNameDto
+            {
+                ContentId = x.ContentId,
+                GenreMappingId = x.GenreMappingsId,
+                GenreName = x.Genre.Name,
+                GenresId = x.GenresId,
+            }).ToList();
+            return result;
+        }
+
         public async Task<GetByIdGenreMappingDto> GetGenreMappingByIdAsync(int id)
         {
             var genreMapping = await _context.GenreMappings.FindAsync(id);

@@ -3,7 +3,7 @@
     public class ResultGenreMappingDto
     {
         public int GenreMappingId { get; set; }
-        public int ContentId { get; set; } // İçerik ID'si
-        public int GenresId { get; set; } // Genre ID'si
+        public int ContentId { get; set; } 
+        public int GenresId { get; set; } 
     }
 }

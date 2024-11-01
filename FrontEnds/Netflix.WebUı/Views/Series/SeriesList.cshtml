@@ -13,6 +13,7 @@
 </head>
 <body>
     <div class="container mt-5">
+        <h3 class="mb-4">Series List</h3>
         <div class="row">
             @foreach (var series in Model)
             {
@@ -23,12 +24,18 @@
                             <p class="card-text">@series.Description</p>
                             <p class="card-text"><small class="text-muted">Release Date: @series.ReleaseDate.ToShortDateString()</small></p>
                             <p class="card-text"><strong>Total Seasons:</strong> @series.TotalSeasons</p>
-                            <div class="d-flex justify-content-between">
+
+                            <!-- Genre bilgilerini içeren component -->
+                            <div>
+                                <h6>Genres:</h6>
+                                @await Component.InvokeAsync("_SeriesGenreViewComponents", new { contentId = series.SeriesId })
+                            </div>
+
+                            <div class="d-flex justify-content-between mt-3">
                                 <a href="/Series/DeleteSeries/@series.SeriesId" class="btn btn-danger btn-sm">Sil</a>
                                 <a href="/Series/CreateSeries" class="btn btn-primary btn-sm">Ekle</a>
                                 <a href="/Series/UpdateSeries/@series.SeriesId" class="btn btn-warning btn-sm">Güncelle</a>
                                 <a href="/Season/SeriesSeasonList/@series.SeriesId" class="btn btn-success btn-sm">Detayları Görüntüle</a>
-
                             </div>
                         </div>
                     </div>

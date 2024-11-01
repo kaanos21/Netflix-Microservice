@@ -1,0 +1,24 @@
+﻿@model List<GetByContentIdGenreListWithNameDto>
+
+@if (Model == null || !Model.Any())
+{
+    <p>Tür bulunamadı.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>GenreMappingId</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var genre in Model)
+            {
+                <tr>
+                    <td>@genre.GenreName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

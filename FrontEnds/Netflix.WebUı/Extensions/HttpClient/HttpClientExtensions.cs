@@ -58,7 +58,7 @@ namespace Netflix.WebUı.Extensions.HttpClient
             //Movie mikroservis
             services.AddHttpClient<IMovieService, MovieService>(opt =>
             {
-                opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Genre.Path}");
+                opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Movie.Path}");
             });
 
             return services;
