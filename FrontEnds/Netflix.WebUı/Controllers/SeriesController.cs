@@ -2,6 +2,7 @@
 using Netflix.DtoLayer.ContentDtos.SeriesDto;
 using Netflix.WebUı.Services.ContentServices.SeasonService;
 using Netflix.WebUı.Services.ContentServices.SeriesServices;
+using Netflix.WebUı.Services.GenreServices.GenreMappingServices;
 
 namespace Netflix.WebUı.Controllers
 {
@@ -9,11 +10,13 @@ namespace Netflix.WebUı.Controllers
     {
         private readonly ISeriesService _seriesService;
         private readonly ISeasonService _seasonService;
+        private readonly IGenreMappingService _genreMappingService;
 
-        public SeriesController(ISeriesService seriesService, ISeasonService seasonService)
+        public SeriesController(ISeriesService seriesService, ISeasonService seasonService, IGenreMappingService genreMappingService)
         {
             _seriesService = seriesService;
             _seasonService = seasonService;
+            _genreMappingService = genreMappingService;
         }
 
         public async Task<IActionResult> SeriesList()
@@ -41,6 +44,8 @@ namespace Netflix.WebUı.Controllers
         [HttpGet]
         public async Task<IActionResult> CreateSeries()
         {
+            var genres=await _genreMappingService.GetAllGenreMappingAsync();
+            ViewBag.Genres = genres;
             return View();
         }
         [HttpPost]

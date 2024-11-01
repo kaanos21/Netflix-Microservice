@@ -21,6 +21,9 @@ namespace Netflix.Movie.Controllers
             await _MovieManager.CreateMovieAsync(createMovieDto);
             return Ok("başarı ile eklendi");
         }
+
+
+
         [HttpGet]
         public async Task<IActionResult> GetListMovie()
         {

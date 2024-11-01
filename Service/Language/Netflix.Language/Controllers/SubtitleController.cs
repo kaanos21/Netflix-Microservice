@@ -22,6 +22,9 @@ namespace Netflix.Subtitle.Controllers
             await _SubtitleManager.CreateSubtitleAsync(createSubtitleDto);
             return Ok("başarı ile eklendi");
         }
+
+
+
         [HttpGet]
         public async Task<IActionResult> GetListSubtitle()
         {

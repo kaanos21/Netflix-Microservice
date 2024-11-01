@@ -36,6 +36,16 @@
                 <input asp-for="TotalSeasons" class="form-control" type="number" required />
                 <span asp-validation-for="TotalSeasons" class="text-danger"></span>
             </div>
+            <div class="mb-3">
+                <label class="form-label">Dizi Türleri</label>
+                <ul class="list-group">
+                    @foreach (var genre in ViewBag.Genres)
+                    {
+                        <li class="list-group-item">@genre.Name</li>
+                    }
+                </ul>
+            </div>
+
             <button type="submit" class="btn btn-primary">Ekle</button>
             <a href="/Series/List" class="btn btn-secondary">Geri Dön</a>
         </form>
