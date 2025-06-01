@@ -49,3 +49,4 @@ Netflix Mikroservis Projesi, dizileri sezon sezon ve bölüm bölüm listeleyen 
 - **API Entegrasyonu**: Harici API'ler consume edilerek veri alınabilir. ✅  
 
 Bu yapıyla, projemiz hem verimli hem de yönetilebilir bir mikroservis mimarisi sunmaktadır.
+
