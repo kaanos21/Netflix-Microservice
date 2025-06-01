@@ -46,6 +46,7 @@ Netflix Mikroservis Projesi, dizileri sezon sezon ve bölüm bölüm listeleyen 
 - **Mikroservis Mimarisi**: Servislerin monolitik yapıda yazılmasıyla hızlı ve etkili bir sistem oluşturuldu. ✅  
 - **Mikroservisler Arası İletişim**: Mikroservisler arasında etkili bir iletişim sağlanmıştır. Bu iletişim, projenin mikroservis mimarisi kullanılarak yapılandırılmasından kaynaklanmaktadır. Her mikroservis belirli bir işlevi yerine getirirken, ihtiyaç duyduğu verileri diğer mikroservislerden alarak işlem yapabilmektedir.
 
+
 - **API Entegrasyonu**: Harici API'ler consume edilerek veri alınabilir. ✅  
 
 Bu yapıyla, projemiz hem verimli hem de yönetilebilir bir mikroservis mimarisi sunmaktadır.
